@@ -4,8 +4,8 @@
     <title></title>
 </head>
 <body>
-<img src="{{asset('assets/images/logos.png')}}" alt="homepage" class="light-logo" />
-<h2>St. John College</h2>
+{{--<img src="{{asset('assets/images/logos.png')}}" alt="homepage" class="light-logo" />--}}
+<h2>ARD</h2>
 <h2>Library</h2>
 <h3>Report for the date : <?php echo (date("Y-m-d")); ?></h3>
 <table class="table table-bordered">
