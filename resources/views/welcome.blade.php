@@ -62,7 +62,6 @@
             width: 100%;
             height: 100%;
             background-color: #000022;
-            background-image: url("");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: 50% 50%;
@@ -185,17 +184,17 @@
 
 
         <div class="title ">
-            <Text style="color: #ebebeb">SCALAR</Text>
+            <Text style="color: #ebebeb">ARD</Text>
         </div>
         <div class="links m-b-md">
-            <Text style="color: #ebebeb;">School Management System</Text>
+            <Text style="color: #ebebeb;">Library Management System</Text>
         </div><br>
 
         <div class="links">
             <a href="{{ url('/login_user') }}"><Text style="color: #ebebeb">Teacher's Portal</Text></a>
             <a href="{{ url('/login_user') }}"><Text style="color: #ebebeb">Student's Portal</Text></a>
-            <a href="{{ url('/login_user') }}"><Text style="color: #ebebeb">Parent's Portal</Text></a>
-            <a href="{{ url('/login_user') }}"><Text style="color: #ebebeb">Admin's Portal</Text></a>
+            {{--<a href="{{ url('/login_user') }}"><Text style="color: #ebebeb">Parent's Portal</Text></a>--}}
+            {{--<a href="{{ url('/login_user') }}"><Text style="color: #ebebeb">Admin's Portal</Text></a>--}}
         </div>
 
         {{--@if (Session::has('Status'))--}}

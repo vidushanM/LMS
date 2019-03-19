@@ -10,7 +10,7 @@ use Milon\Barcode\Facades\DNS2DFacade;
     <title></title>
 </head>
 <body>
-<img src="{{asset('assets/images/logos.png')}}" alt="homepage" class="light-logo" />
+{{--<img src="{{asset('assets/images/logos.png')}}" alt="homepage" class="light-logo" />--}}
 <h2>Library Management System</h2>
 <table class="table table-bordered">
     <tr>

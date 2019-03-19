@@ -80,18 +80,18 @@
                                     <span class="input-group-text bg-dark text-white" id="basic-addon1"><i class="ti-lock"></i></span>
                                 </div>
                                 <select name="role" class="form-control">
-                                    <option selected disabled>- Select Role -</option>
-                                    <option value="Admin">Administrator</option>
-                                    <option value="HRMgr">Human Resource Manager</option>
-                                    <option value="FinanceMgr">Finance Manager</option>
-                                    <option value="TransportMgr">Transport Manager</option>
-                                    <option value="HostelMgr">Hostel Manager(Warden)</option>
+                                    {{--<option selected disabled>- Select Role -</option>--}}
+                                    {{--<option value="Admin">Administrator</option>--}}
+                                    {{--<option value="HRMgr">Human Resource Manager</option>--}}
+                                    {{--<option value="FinanceMgr">Finance Manager</option>--}}
+                                    {{--<option value="TransportMgr">Transport Manager</option>--}}
+                                    {{--<option value="HostelMgr">Hostel Manager(Warden)</option>--}}
                                     <option value="LibraryMgr">Library Manager(Librarian)</option>
-                                    <option value="ExamCenterMgr">Exam Center Manager</option>
-                                    <option value="NotificationMgr">Notification Manager</option>
-                                    <option value="AcademicMgr">Academic Activities Manager</option>
-                                    <option value="NonAcademicMgr">Non Academic Activities Manager</option>
-                                    <option value="ResourceMgr">Resource Manager</option>
+                                    {{--<option value="ExamCenterMgr">Exam Center Manager</option>--}}
+                                    {{--<option value="NotificationMgr">Notification Manager</option>--}}
+                                    {{--<option value="AcademicMgr">Academic Activities Manager</option>--}}
+                                    {{--<option value="NonAcademicMgr">Non Academic Activities Manager</option>--}}
+                                    {{--<option value="ResourceMgr">Resource Manager</option>--}}
 
                                 </select>
                             </div>

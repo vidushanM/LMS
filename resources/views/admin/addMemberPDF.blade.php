@@ -11,7 +11,7 @@ use Milon\Barcode\Facades\DNS2DFacade;
 </head>
 <body>
 <!--<img src="{{asset('assets/images/logos.png')}}" alt="homepage" class="light-logo" />-->
-<h2>St.John College</h2>
+<h2>ARD</h2>
 <p>Library Card</p>
 <table class="table table-bordered">
     <tr>
