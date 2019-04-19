@@ -18,7 +18,7 @@
                 <!-- Logo text -->
                 <span class="logo-text">
                              <!-- dark Logo text -->
-                    <img src="{{asset('assets/images/logos.png')}}" alt="homepage" class="light-logo"/>
+                    {{--<img src="{{asset('assets/images/logos.png')}}" alt="homepage" class="light-logo"/>--}}
                 </span>
                 <!-- Logo icon -->
                 <!-- <b class="logo-icon"> -->

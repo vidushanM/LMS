@@ -106,7 +106,7 @@ class libraryDashboardController extends Controller
         $returnbookcount = $this->countreturnbooks();
         $finrcountdays = $this->nofdays();
         $totalfine = $this->calculatefine();
-        $pdf = Facade::loadView('Admin.Library_Management.libraryOverallReportPDF', compact('bookcount','membercount','issuecount','returnbookcount','finrcountdays','totalfine'));
+        $pdf = Facade::loadView('admin.libraryOverallReportPDF', compact('bookcount','membercount','issuecount','returnbookcount','finrcountdays','totalfine'));
         return $pdf->download('Library-Report.pdf');
         //return redirect('books')->with('success','Book has been  deleted');
     }
