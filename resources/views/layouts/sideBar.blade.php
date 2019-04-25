@@ -11,9 +11,11 @@
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" data-toggle="modal" data-target="#addNewBookModal" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Add Book</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('members')}}" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Members</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/Library/addNewMember')}}" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Add New Members</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/admin/booksInShelf')}}" aria-expanded="false"><i class="mdi mdi-alert"></i><span class="hide-menu">Book Shelf</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/issue_books')}}" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">View Issued Books</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/return_books')}}" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">View All Returned Books</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/library_settings/1/edit')}}" aria-expanded="false"><i class="mdi mdi-alert"></i><span class="hide-menu">Settings</span></a></li>
+
 
 
             </ul>
