@@ -35,8 +35,9 @@ class bookController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -44,20 +45,53 @@ class bookController extends Controller
             'bookname' => 'required',
             'isbn' => 'required',
             'authorname' => 'required',
-            'barcode' => 'required'
+            'barcode' => 'required',
+            'totCopies' => 'required'
         ]);
 
-        books::create($newAddBook);
-        return redirect('books')->with('success','New book is added');
-        //return back() ->with('success','New book is added.');
+        $status = false;
+        //return redirect('books')->with('success','New book is added');
+        $boooks = books::all();
+
+        foreach ($boooks as $book){
+            if($book['isbn'] == $request->get('isbn')){
+                $init_copies = $book['totCopies'];
+                $book['totCopies'] = $request->get('totCopies') + $init_copies;
+                $book->save();
+                $status = true;
+            }
+
+        }
+
+        if($status == false){
+            books::create($newAddBook);
+        }
+
+        $boooks = books::all()->toArray();
+        $boooks = array_reverse($boooks, true);
+
+
+
+        return view('admin.viewBookInShelf',compact('boooks'));
     }
 
 
     /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function viewBooksInShelf()
+    {
+        $boooks = books::all()->toArray();
+        $boooks = array_reverse($boooks, true);
+
+        return view('admin.viewBookInShelf',compact('boooks'));
+    }
+
+    /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     * @return void
      */
     public function show($id)
     {
@@ -82,6 +116,7 @@ class bookController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param string $id
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request,$id)
     {

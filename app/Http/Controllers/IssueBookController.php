@@ -23,6 +23,7 @@ class IssueBookController extends Controller
     // public $currentTime = null;
      public $fine = null;
 
+
     public function index()
     {
         $issue_books = IssueBook::all()->toArray();
@@ -48,7 +49,7 @@ class IssueBookController extends Controller
     public function store(Request $request)
     {
         $issueBook = $this->validate(request(), [
-            'bookbarcode' => 'required|min:8|numeric',
+            'bookbarcode' => 'required|numeric',
             'issuememberid' => 'required',
 
         ]);
@@ -57,6 +58,13 @@ class IssueBookController extends Controller
     if(books::where('barcode','=',$request->bookbarcode)->exists() and Member::where('memberid','=',$request->issuememberid)->exists()) {
 
         IssueBook::create($issueBook);
+
+        $issue_book = books::where('barcode',$request->bookbarcode)->get()->first();
+
+        $inshelf = $issue_book['inShelf'];
+        $issue_book['inShelf'] = $inshelf - 1;
+        $issue_book->save();
+
         return back()->with('success', 'Book has been issued');;
     }
     else{
@@ -90,7 +98,7 @@ class IssueBookController extends Controller
     {
 
         $id = $this->validate(request(), [
-            'returnbookbarcode' => 'required|min:8|numeric',
+            'returnbookbarcode' => 'required|numeric',
 
 
         ]);
@@ -183,6 +191,7 @@ class IssueBookController extends Controller
         $Book = IssueBook::find($IssueBookID);
         $confirmReturnBook = $Book;
         $fine = $request->get('fine');
+        $bookBarcode = $request->get('bookbarcode');
        // RetunBook returnBook = new ReturnBook();
         //dd($confirmReturnBook);
         //dd($fine);
@@ -213,6 +222,12 @@ class IssueBookController extends Controller
         //$return_books->returndate = $returnCurrentTime;
         $return_books->save();
         //dd($return_books);
+
+        $booksInShelf = books::where('barcode',$bookBarcode)->get()->first();
+
+        $booksInShelf['inShelf'] = $booksInShelf['inShelf'] + 1;
+
+        $booksInShelf->save();
 
         $books = IssueBook::find($IssueBookID);
         $books->delete();

@@ -54,6 +54,12 @@ $last_book = end($all_books);
                                             <input type="text" value="<?php echo($last_book["barcode"]+1); ?>" class="form-control" id="barcode" name="barcode" placeholder="Barcode Here" readonly>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label for="barcode" class="col-sm-3 text-right control-label col-form-label">Copies</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"  class="form-control" id="barcode" name="totCopies" placeholder="No. of Copies Here">
+                                        </div>
+                                    </div>
 
 
                                 </div>

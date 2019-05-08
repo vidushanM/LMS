@@ -585,3 +585,8 @@ Route::resource('vehicles','vehicleController');
 Route::resource('student_reports','Student_ReportController');
 
 Route::resource('staff_reports','Staff_ReportController');
+
+
+// updated book routes
+
+Route::get('/admin/booksInShelf','bookController@viewBooksInShelf');
