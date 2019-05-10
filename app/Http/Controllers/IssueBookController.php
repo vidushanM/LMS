@@ -55,20 +55,29 @@ class IssueBookController extends Controller
         ]);
 
 
-    if(books::where('barcode','=',$request->bookbarcode)->exists() and Member::where('memberid','=',$request->issuememberid)->exists()) {
+    if(books::where('barcode','=',$request->bookbarcode)->exists() and Member::where('memberid', $request->issuememberid)->exists()) {
 
-        IssueBook::create($issueBook);
+        if(IssueBook::where('issuememberid', $request->issuememberid)->count() >= 3) {
+            return back()->with('success', 'Member has reached the maximum number of books');
+        }
 
         $issue_book = books::where('barcode',$request->bookbarcode)->get()->first();
 
         $inshelf = $issue_book['inShelf'];
         $issue_book['inShelf'] = $inshelf - 1;
-        $issue_book->save();
 
-        return back()->with('success', 'Book has been issued');;
+        if($issue_book['inShelf'] < 0) {
+            return back()->with('success', 'Book is not available');
+        }
+
+        if($issue_book->save())  {
+            IssueBook::create($issueBook);
+        }
+
+        return back()->with('success', 'Book has been issued');
     }
     else{
-        return back()->with('success', 'Book Barcode or Member ID does not matched');;
+        return back()->with('success', 'Book Barcode or Member ID does not matched');
     }
     }
 

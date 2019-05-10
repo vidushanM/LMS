@@ -49,28 +49,21 @@ class bookController extends Controller
             'totCopies' => 'required'
         ]);
 
-        $status = false;
-        //return redirect('books')->with('success','New book is added');
-        $boooks = books::all();
+        $book = new books($newAddBook);
 
-        foreach ($boooks as $book){
-            if($book['isbn'] == $request->get('isbn')){
-                $init_copies = $book['totCopies'];
-                $book['totCopies'] = $request->get('totCopies') + $init_copies;
-                $book->save();
-                $status = true;
-            }
+        $book->inShelf = $request->get('totCopies');
 
-        }
-
-        if($status == false){
-            books::create($newAddBook);
+        if(books::where('isbn', $request->get('isbn'))->exists()) {
+            $old_book = books::where('isbn', $request->get('isbn'))->first();
+            $old_book->totCopies += $book->totCopies;
+            $old_book->inShelf += $book->inShelf;
+            $old_book->save();
+        } else {
+            $book->save();
         }
 
         $boooks = books::all()->toArray();
         $boooks = array_reverse($boooks, true);
-
-
 
         return view('admin.viewBookInShelf',compact('boooks'));
     }

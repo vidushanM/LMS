@@ -471,7 +471,7 @@ Route::get('/Library/returnBook', function (){
     return view('admin.returnBook');
 });
 
-Route::resource('issue_books','issueBookController');
+Route::resource('issue_books','IssueBookController');
 
 //Route::get('return/{id}', 'IssueBookController@return');
 Route::post('return', 'IssueBookController@return');

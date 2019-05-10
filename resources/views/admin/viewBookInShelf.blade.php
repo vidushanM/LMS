@@ -99,6 +99,7 @@
                                         <td>{{$book['bookname']}}</td>
                                         <td>{{$book['authorname']}}</td>
                                         <td>{{$book['barcode']}}</td>
+                                        <td>{{$book['totCopies']}}</td>
                                         <td>{{$book['inShelf']}}</td>
                                         <td>
 
