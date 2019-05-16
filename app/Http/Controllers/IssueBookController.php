@@ -48,7 +48,7 @@ class IssueBookController extends Controller
     public function store(Request $request)
     {
         $issueBook = $this->validate(request(), [
-            'bookbarcode' => 'required|min:8|numeric',
+            'bookbarcode' => 'required|min:1|numeric',
             'issuememberid' => 'required',
 
         ]);
