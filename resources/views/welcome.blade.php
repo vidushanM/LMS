@@ -152,7 +152,7 @@
 <div class="flex-center position-ref full-height">
 
     <div class="top-right links">
-        @if(Auth::guard('admin')->check())
+        @if(Auth::guard('member')->check() || Auth::guard('admin')->check())
             <a  style="color: white" href="">Home</a>
             <a  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: white" href="">Logout</a>
 

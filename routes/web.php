@@ -359,6 +359,9 @@ Route::post('/register_admin','customAuthController@register')->name('register')
 
 Route::post('/logout_user','customAuthController@logout')->name('logout');
 
+Route::get('/change_password','MemberController@showChangePasswordForm')->name('showChangePasswordForm');
+Route::post('/change_password','MemberController@changePassword')->name('changePassword');
+
 
 Route::get('/access_denied',function (){
     return view('auth.access_denied');

@@ -59,6 +59,12 @@ class customAuthController extends Controller
         elseif(Auth::guard('admin')->attempt(['email' => $request->email,'password' => $request ->password, 'role' => 'LibraryMgr'])){
             return redirect('/library/dashboard');
         }
+        elseif(Auth::guard('member')->attempt(['memberemail' => $request->email,'password' => $request ->password])){
+            if(Auth::guard('member')->user()->isNew) {
+                return redirect('change_password');
+            }
+            return redirect('/');
+        }
         elseif(Auth::attempt(['email' => $request->email,'password' => $request ->password])){
 
             $request->session()->put('prId', Auth::user()->name);

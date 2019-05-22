@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Member;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 use Barryvdh\DomPDF\Facade;
 
@@ -48,6 +49,9 @@ class MemberController extends Controller
             'memberphone' => 'required|min:10|numeric',
             'memberemail' => 'required|email',
         ]);
+
+        $newAddMember['password'] = bcrypt('password');
+        $newAddMember['isNew'] = true;
 
         $memberType = $request -> get("memberType");
         if ($memberType == "student") {
@@ -158,5 +162,26 @@ class MemberController extends Controller
         \"name\": 'Item 3',
         \"ignore\": false
       }";
+    }
+
+    public function changePassword(Request $request) {
+        $credentials = $this->validate(request(),[
+            'password' => 'required'
+        ]);
+
+        // dd($credentials);
+
+        $credentials['isNew'] = false;
+        $credentials['password'] = bcrypt($credentials['password']);
+
+        $member = Member::updateOrCreate(['memberemail' => Auth::guard('member')->user()->memberemail], $credentials);
+        
+        if($member->isNew == false) {
+            return redirect('/');
+        }
+    }
+
+    public function showChangePasswordForm() {
+        return view('admin.changePasswordForm');
     }
 }
