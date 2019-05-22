@@ -148,7 +148,7 @@
                         <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
                         <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
                         <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
-                        <a class="dropdown-item" href="{{ url('logout_user') }}"
+                        <a class="dropdown-item" href="javascript:void(0)"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"><i class="fa fa-power-off m-r-5 m-l-5"></i>
                             {{ __('Logout') }}
@@ -159,6 +159,10 @@
                     {{--<a class="nav-link"><button class="btn btn-outline-purple" data-toggle="modal" data-target="#loginModal">{{Auth::user()->name}}</button></a>--}}
 
                 </li>
+
+                <form id="logout-form" action="{{url('logout_user')}}" method="post" style="display: none;">
+                    {{csrf_field()}}
+                </form>
 
                 <!-- ============================================================== -->
                 <!-- User profile and search -->
