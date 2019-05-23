@@ -100,7 +100,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-4" data-toggle="modal" data-target="#books">
+                                <div class="col-md-4" @if($issues!=0) data-toggle="modal" data-target="#books" @endif>
                                     <div class="card text-white bg-dark mb-3 card-hover" style="height: 150px">
                                         <div class="row">
                                             <div class="col-md-4 card-body bg-success">
@@ -138,13 +138,18 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
+
+                    <dl class="list-group">
+                        @foreach($issuesBooks as $book)
+                            @foreach($books as $bk)
+                                @if($bk->barcode==$book->bookbarcode)
+                                    <dt class="list-group-item">$bk->bookname</dt>
+                                @endif
+                            @endforeach
+                                <dl class="list-group-item">$book-created_at</dl>
+                        @endforeach
+
+                    </dl>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -19,11 +19,15 @@ class DashboardController extends Controller
     {
         $issues = IssueBook::where('issuememberid','=',Auth::guard('member')->user()->memberid)->count();
 
+        $issuesBooks = IssueBook::where('issuememberid','=',Auth::guard('member')->user()->memberid)->get();
+
+        $books = books::all();
+
         $available = books::where('status','=','available')->count();
 
         $pending = RequestBooks::where('user_id','=',Auth::guard('member')->user()->memberid)->where('status','=','pending')->count();
 
-        return view('member.dashboard',compact('issues','available','pending'));
+        return view('member.dashboard',compact('issues','available','pending','issuesBooks','books'));
     }
 
     /**
