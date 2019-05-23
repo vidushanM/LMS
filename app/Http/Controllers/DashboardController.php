@@ -8,23 +8,22 @@ use App\RequestBooks;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RequestBookController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
         $issues = IssueBook::where('issuememberid','=',Auth::guard('member')->user()->memberid)->count();
 
-        $books = books::where('status','=','available')->get();
+        $available = books::where('status','=','available')->count();
 
-        $req = RequestBooks::where('user_id','=',Auth::guard('member')->user()->memberid)->get();
+        $pending = RequestBooks::where('user_id','=',Auth::guard('member')->user()->memberid)->where('status','=','pending')->count();
 
-        return view('member.request',compact('req','issues','books'));
+        return view('member.dashboard',compact('issues','available','pending'));
     }
 
     /**
@@ -45,21 +44,7 @@ class RequestBookController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->bookname,$request->book_id);
-        $requestBook = new RequestBooks();
-
-        $requestBook->user_id = Auth::guard('member')->user()->memberid;
-
-        $requestBook->book_id = $request->book_id;
-
-        $requestBook->book_name = $request->bookname;
-
-        $requestBook->status = "pending";
-
-        $requestBook->save();
-
-        return redirect('request-book');
-
+        //
     }
 
     /**
@@ -104,11 +89,6 @@ class RequestBookController extends Controller
      */
     public function destroy($id)
     {
-
-        $req = RequestBooks::findOrFail($id);
-
-        $req->delete();
-
-        return redirect();
+        //
     }
 }

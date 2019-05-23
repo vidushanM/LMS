@@ -46,7 +46,12 @@
                     <div class="card bg-secondary text-white">
                         <div class="card-header  text-white">
                             <br>
-                            <button class="btn btn-success" data-toggle="modal" data-target="#Request">Request</button>
+                            @if($issues>=3)
+                                <button class="btn btn-success" disabled data-toggle="modal" data-target="#Request">Request</button>
+                            @else
+                                <button class="btn btn-success" data-toggle="modal" data-target="#Request">Request</button>
+
+                            @endif
                             <br>
                         </div>
                         <div class="table-responsive">
@@ -63,7 +68,7 @@
                                 </thead>
 
                                 <tbody>
-                                @foreach($books as $book)
+                                @foreach($req as $book)
 
                                     <tr>
                                         <td>{{$book->book_id}}</td>
@@ -93,29 +98,34 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form action="" method="POST">
 
-                        <div class="form-group">
-                            <div class="input-group">
-                                <select name="book_name" class="form-control">
-                                    <option selected>Select Book</option>
-                                    <option >Select Book</option>
-                                    <option >Select Book</option>
-                                    <option>Select Book</option>
-                                </select>
-                            </div>
+                    <form action="{{ route('request-book.store') }}" method="POST">
+                        {{ csrf_field() }}
+                        <div class="modal-body">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" id="bookname" hidden name="bookname">
+                                        <select name="book_id" id="book_id" class="form-control" required>
+                                            <option selected>Select Book</option>
+                                            @foreach($books as $book)
+                                                <option value="{{$book->id}}">{{$book->bookname}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+
                         </div>
-
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Request</button>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Request</button>
-                </div>
             </div>
         </div>
     </div>
 
     @include('layouts.footer')
 @endsection
+
+

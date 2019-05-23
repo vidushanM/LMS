@@ -26,6 +26,9 @@ Route::resource('/request-book','RequestBookController');
 
 Route::resource('/available-book','AvailableBookController');
 
+Route::resource('/member-dashboard','DashboardController');
+
+
 //Authentication Routes
 Auth::routes();
 

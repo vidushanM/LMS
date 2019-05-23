@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\books;
 use App\Employee_Loan;
 use App\IssueBook;
 use App\Parent_Guardian;
+use App\RequestBooks;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -66,11 +68,7 @@ class customAuthController extends Controller
                 return redirect('change_password');
             }
 
-            $issues = IssueBook::where('issuememberid','=',Auth::guard('member')->user()->memberid)->count();
-
-
-            //dd($issues);
-            return view('member.dashboard',compact('issues'));
+            return redirect(route('member-dashboard.index'));
         }
         elseif(Auth::attempt(['email' => $request->email,'password' => $request ->password])){
 

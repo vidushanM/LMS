@@ -74,7 +74,7 @@
                                                 <center><h5 class="card-title">Total Books</h5></center>
                                             </div>
                                             <div class="card-body"><br>
-                                                <center><h5 style="font-size:40px;vertical-align: bottom" class="card-title timer" data-from="0" data-to="45" data-speed="2000" data-fresh-interval="20">Rs.500,0000</h5></center>
+                                                <center><h5 style="font-size:40px;vertical-align: bottom" class="card-title timer" data-from="0" data-to="{{$available}}" data-speed="2000" data-fresh-interval="20">Rs.500,0000</h5></center>
 
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@
                                                 <center><h5 class="card-title">Requested Books</h5></center>
                                             </div>
                                             <div class="card-body"><br>
-                                                <center><h5 style="font-size:40px;vertical-align: bottom" class="card-title timer" data-from="0" data-to="85" data-speed="20" data-fresh-interval="20">Rs.500,0000</h5></center>
+                                                <center><h5 style="font-size:40px;vertical-align: bottom" class="card-title timer" data-from="0" data-to="{{$pending}}" data-speed="2000" data-fresh-interval="20">Rs.500,0000</h5></center>
 
                                             </div>
                                         </div>
@@ -108,7 +108,7 @@
                                                 <center><h5 class="card-title">Issued Books</h5></center>
                                             </div>
                                             <div class="card-body"><br>
-                                                <center><h5 style="font-size:40px;vertical-align: bottom" class="card-title timer" data-from="0" data-to="85" data-speed="20" data-fresh-interval="20">Rs.500,0000</h5></center>
+                                                <center><h5 style="font-size:40px;vertical-align: bottom" class="card-title timer" data-from="0" data-to="{{$issues}}" data-speed="2000" data-fresh-interval="20">Rs.500,0000</h5></center>
 
                                             </div>
                                         </div>

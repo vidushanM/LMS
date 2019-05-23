@@ -294,6 +294,19 @@
 
 </script>
 
+<script>
+
+    $('#book_id').change(function(){
+        console.log("inside");
+        var name = $("#book_id :selected").text();
+
+        console.log(name);
+
+        $("#bookname").val(name);
+
+    });
+
+</script>
 <!-- ============================================================== -->
 <!-- User Profile Modal -->
 <!-- ============================================================== -->
