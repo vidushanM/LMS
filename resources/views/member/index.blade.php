@@ -4,8 +4,7 @@
     @include('layouts.header1')
     @include('layouts.sideBar1')
 
-<<<<<<< HEAD
-=======
+
     <div class="page-wrapper">
 
         <div class="page-breadcrumb">
@@ -54,11 +53,21 @@
                                     <th scope="col" style="font-size: 12px">Book Name</th>
                                     <th scope="col" style="font-size: 12px">Author</th>
                                     <th scope="col" style="font-size: 12px">ISBN</th>
-                                    <th scope="col" style="font-size: 12px">Action</th>
 
                                 </tr>
                                 </thead>
 
+                                <tbody>
+                                @foreach($books as $book)
+
+                                    <tr>
+                                        <td>{{$book->id}}</td>
+                                        <td>{{$book->bookname}}</td>
+                                        <td>{{$book->authorname}}</td>
+                                        <td>{{$book->isbn}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -68,7 +77,6 @@
     </div>
 
     </div>
->>>>>>> 684d6472510ac200093232f75e26fc50a29bc93f
 
 
     @include('layouts.footer')

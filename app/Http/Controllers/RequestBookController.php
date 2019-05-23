@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\books;
 use Illuminate\Http\Request;
 
 class RequestBookController extends Controller
@@ -13,7 +14,9 @@ class RequestBookController extends Controller
      */
     public function index()
     {
-        return view('member.request');
+        $books = books::where('status','=','available')->get();
+
+        return view('member.request',compact('books'));
     }
 
     /**

@@ -59,6 +59,17 @@
                                 </tr>
                                 </thead>
 
+                                <tbody>
+                                @foreach($books as $book)
+
+                                    <tr>
+                                        <td>{{$book->id}}</td>
+                                        <td>{{$book->bookname}}</td>
+                                        <td>{{$book->authorname}}</td>
+                                        <td>{{$book->isbn}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>
