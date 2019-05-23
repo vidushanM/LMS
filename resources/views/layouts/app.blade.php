@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/extra-libs/multicheck/multicheck.css')}}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
 
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
@@ -76,6 +77,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="http://cdn.jsdelivr.net/jquery.flot/0.8.3/jquery.flot.min.js"></script>
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <![endif]-->
@@ -189,6 +191,13 @@
 <script src="{{asset('assets/libs/chart/turning-series.js')}}"></script>
 <script src="{{asset('js/backend_js/pages/chart/chart-page-init.js')}}"></script>
 <script src="{{asset('js/backend_js/fabochart.js')}}"></script>
+<script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready( function () {
+        $('#myTable').DataTable();
+    });
+</script>
 
 <script>
     /****************************************
@@ -280,6 +289,9 @@
 
         document.getElementById("link").setAttribute("href",link);
     })
+
+
+
 </script>
 
 <!-- ============================================================== -->

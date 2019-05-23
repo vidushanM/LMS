@@ -48,10 +48,12 @@
                             <table class="table" id="myTable">
                                 <thead class="thead-light">
                                 <tr>
+                                    <th scope="col" style="font-size: 12px">Member Id</th>
                                     <th scope="col" style="font-size: 12px">Book Id</th>
-                                    <th scope="col" style="font-size: 12px">Book Name</th>
-                                    <th scope="col" style="font-size: 12px">Author</th>
-                                    <th scope="col" style="font-size: 12px">ISBN</th>
+                                    <th scope="col" style="font-size: 12px">Book name</th>
+                                    <th scope="col" style="font-size: 12px">User Id</th>
+                                    <th scope="col" style="font-size: 12px">Request date</th>
+                                    <th scope="col" style="font-size: 12px">Status</th>
                                     <th scope="col" style="font-size: 12px">Action</th>
 
                                 </tr>
