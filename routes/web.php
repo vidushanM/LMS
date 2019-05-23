@@ -19,9 +19,12 @@ Route::get('/', function () {
 });
 
 Route::get('/member', function () {
-    return view('member.index');
+    return view('member.dashboard');
 });
 
+Route::resource('/request-book','RequestBookController');
+
+Route::resource('/available-book','AvailableBookController');
 
 //Authentication Routes
 Auth::routes();
