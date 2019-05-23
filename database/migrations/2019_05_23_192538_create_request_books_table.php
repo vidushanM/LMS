@@ -18,7 +18,7 @@ class CreateRequestBooksTable extends Migration
             $table->string('user_id');
             $table->string('book_id');
             $table->string('book_name');
-            $table->string('re1_date');
+
             $table->string('status');
             $table->timestamps();
         });

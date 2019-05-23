@@ -48,10 +48,8 @@
                             <table class="table" id="myTable">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th scope="col" style="font-size: 12px">Member Id</th>
                                     <th scope="col" style="font-size: 12px">Book Id</th>
                                     <th scope="col" style="font-size: 12px">Book name</th>
-                                    <th scope="col" style="font-size: 12px">User Id</th>
                                     <th scope="col" style="font-size: 12px">Request date</th>
                                     <th scope="col" style="font-size: 12px">Status</th>
                                     <th scope="col" style="font-size: 12px">Action</th>
@@ -63,10 +61,11 @@
                                 @foreach($books as $book)
 
                                     <tr>
-                                        <td>{{$book->id}}</td>
-                                        <td>{{$book->bookname}}</td>
-                                        <td>{{$book->authorname}}</td>
-                                        <td>{{$book->isbn}}</td>
+                                        <td>{{$book->book_id}}</td>
+                                        <td>{{$book->book_name}}</td>
+                                        <td>{{$book->created_at}}</td>
+                                        <td>{{$book->status}}</td>
+                                        <td></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\books;
+use App\RequestBooks;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RequestBookController extends Controller
 {
@@ -12,9 +13,10 @@ class RequestBookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $books = books::where('status','=','available')->get();
+        $books = RequestBooks::where('user_id','=',Auth::guard('member')->user()->memberid)->get();
 
         return view('member.request',compact('books'));
     }
@@ -37,7 +39,20 @@ class RequestBookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $requestBook = new RequestBooks();
+
+        $requestBook->user_id = Auth::guard('member')->user()->memberid;
+
+        $requestBook->book_id = $request->bookid;
+
+        $requestBook->book_name = $request->bookname;
+
+        $requestBook->book_id = $request->bookid;
+
+        $requestBook->save();
+
+        return view();
+
     }
 
     /**
@@ -82,6 +97,11 @@ class RequestBookController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $req = RequestBooks::findOrFail($id);
+
+        $req->delete();
+
+        return redirect();
     }
 }
