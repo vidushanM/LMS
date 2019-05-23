@@ -66,16 +66,11 @@ class customAuthController extends Controller
                 return redirect('change_password');
             }
 
-            $issues = IssueBook::where('issuememberid','=',Auth::guard('member')->user()->memberid)->get();
+            $issues = IssueBook::where('issuememberid','=',Auth::guard('member')->user()->memberid)->count();
 
-            $count = 0;
-
-            foreach ($issues as $issue){
-                $count++;
-            }
 
             //dd($issues);
-            return view('member.dashboard',compact('count'));
+            return view('member.dashboard',compact('issues'));
         }
         elseif(Auth::attempt(['email' => $request->email,'password' => $request ->password])){
 
