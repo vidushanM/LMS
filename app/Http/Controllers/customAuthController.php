@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\Employee_Loan;
+use App\IssueBook;
 use App\Parent_Guardian;
 use Illuminate\Http\Request;
 
@@ -63,9 +65,20 @@ class customAuthController extends Controller
             if(Auth::guard('member')->user()->isNew) {
                 return redirect('change_password');
             }
-            return redirect('/member');
+
+            $issues = IssueBook::where('issuememberid','=',Auth::guard('member')->user()->memberid)->get();
+
+            $count = 0;
+
+            foreach ($issues as $issue){
+                $count++;
+            }
+
+            //dd($issues);
+            return view('member.dashboard',compact('count'));
         }
         elseif(Auth::attempt(['email' => $request->email,'password' => $request ->password])){
+
 
             $request->session()->put('prId', Auth::user()->name);
             return redirect('/parent/dashboard');
