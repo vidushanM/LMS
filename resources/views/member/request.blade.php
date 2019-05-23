@@ -17,6 +17,7 @@
                                 <li class="breadcrumb-item active" aria-current="page">View All Books</li>
                             </ol>
                         </nav>
+
                     </div>
                 </div>
             </div>
@@ -25,6 +26,8 @@
         <div class="container-fluid">
 
             <div class="row">
+
+
                 <div class="col-md-12">
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -41,8 +44,10 @@
                         </div><br />
                     @endif
                     <div class="card bg-secondary text-white">
-                        <div class="card-header bg-cyan text-white">
-
+                        <div class="card-header  text-white">
+                            <br>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#Request">Request</button>
+                            <br>
                         </div>
                         <div class="table-responsive">
                             <table class="table" id="myTable">
@@ -79,6 +84,38 @@
 
     </div>
 
+    <div class="modal" tabindex="-1" role="dialog" id="Request">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Request a Book</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST">
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <select name="book_name" class="form-control">
+                                    <option selected>Select Book</option>
+                                    <option >Select Book</option>
+                                    <option >Select Book</option>
+                                    <option>Select Book</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     @include('layouts.footer')
 @endsection
