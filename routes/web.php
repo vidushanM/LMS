@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/member', function () {
+    return view('member.index');
+});
+
 
 //Authentication Routes
 Auth::routes();

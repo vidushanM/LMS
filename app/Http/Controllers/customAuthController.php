@@ -63,7 +63,7 @@ class customAuthController extends Controller
             if(Auth::guard('member')->user()->isNew) {
                 return redirect('change_password');
             }
-            return redirect('/');
+            return redirect('/member');
         }
         elseif(Auth::attempt(['email' => $request->email,'password' => $request ->password])){
 
