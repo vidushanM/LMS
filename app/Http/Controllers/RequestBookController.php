@@ -109,6 +109,6 @@ class RequestBookController extends Controller
 
         $req->delete();
 
-        return redirect();
+        return redirect(route('member-dashboard.index'));
     }
 }

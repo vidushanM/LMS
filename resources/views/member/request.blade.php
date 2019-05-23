@@ -75,7 +75,13 @@
                                         <td>{{$book->book_name}}</td>
                                         <td>{{$book->created_at}}</td>
                                         <td>{{$book->status}}</td>
-                                        <td></td>
+                                        <td>
+                                            <form action="{{ route('request-book.destroy', $book->id) }}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE')}}
+                                                <button type="submit" class="btn btn-danger btn-sm"  ><i class="fa fa-trash" aria-hidden="true" data-toggle="tooltip" title="Delete"></i></button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
