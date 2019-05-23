@@ -4,8 +4,6 @@
     @include('layouts.header1')
     @include('layouts.sideBar1')
 
-<<<<<<< HEAD
-=======
     <div class="page-wrapper">
 
         <div class="page-breadcrumb">
@@ -50,10 +48,12 @@
                             <table class="table" id="myTable">
                                 <thead class="thead-light">
                                 <tr>
+                                    <th scope="col" style="font-size: 12px">Member Id</th>
                                     <th scope="col" style="font-size: 12px">Book Id</th>
-                                    <th scope="col" style="font-size: 12px">Book Name</th>
-                                    <th scope="col" style="font-size: 12px">Author</th>
-                                    <th scope="col" style="font-size: 12px">ISBN</th>
+                                    <th scope="col" style="font-size: 12px">Book name</th>
+                                    <th scope="col" style="font-size: 12px">User Id</th>
+                                    <th scope="col" style="font-size: 12px">Request date</th>
+                                    <th scope="col" style="font-size: 12px">Status</th>
                                     <th scope="col" style="font-size: 12px">Action</th>
 
                                 </tr>
@@ -68,7 +68,6 @@
     </div>
 
     </div>
->>>>>>> 684d6472510ac200093232f75e26fc50a29bc93f
 
 
     @include('layouts.footer')
