@@ -87,6 +87,7 @@
                                     <th scope="col" style="font-size: 12px">Author</th>
                                     <th scope="col" style="font-size: 12px">Barcode</th>
                                     <th scope="col" style="font-size: 12px">Copies</th>
+                                    <th scope="col" style="font-size: 12px">Shelf</th>
                                     <th scope="col" style="font-size: 12px">Action</th>
                                     <th scope="col" style="font-size: 12px">Print</th>
                                 </tr>

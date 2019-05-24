@@ -142,11 +142,11 @@
                     <dl class="list-group">
                         @foreach($issuesBooks as $book)
                             @foreach($books as $bk)
-                                @if($bk->barcode==$book->bookbarcode)
-                                    <dt class="list-group-item">$bk->bookname</dt>
+                                @if($bk->barcode == $book->bookbarcode)
+                                    <dt class="list-group-item">{{$bk->bookname}}</dt>
                                 @endif
                             @endforeach
-                                <dl class="list-group-item">$book-created_at</dl>
+                                <dl class="list-group-item">{{$book->created_at}}</dl>
                         @endforeach
 
                     </dl>
