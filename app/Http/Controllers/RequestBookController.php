@@ -34,7 +34,10 @@ class RequestBookController extends Controller
      */
     public function create()
     {
-        //
+        $req = RequestBooks::all();
+
+        return view('admin.request',compact('req'));
+
     }
 
     /**
@@ -81,7 +84,7 @@ class RequestBookController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -93,7 +96,13 @@ class RequestBookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $req = RequestBooks::findOrFail($id);
+
+        $req->status = "Available Now";
+
+        $req->update();
+
+        return redirect(route('request-book.create'));
     }
 
     /**
